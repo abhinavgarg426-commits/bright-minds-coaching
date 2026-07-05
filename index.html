@@ -3,436 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Coaching Classes | Classes 6-12, CBSE & ICSE — Jaipur</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awides.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Excel Coaching | Classes 6–12, CBSE & ICSE — Vaishali, Ghaziabad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Source Sans 3', sans-serif; background: #fffef9; color: #1a1a1a; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Lora', serif; }
-        :root { --green: #2d7a4f; --gold: #e8a838; --cream: #fdf8ef; }
+        body { font-family: 'Nunito', sans-serif; background: #f8f6f0; color: #1a1a1a; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
+        :root { --blue: #1e4d8c; --orange: #e8720c; }
 
-        /* Nav */
         nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.4s; }
-        nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.07); padding: 0.7rem 5%; }
-        .logo { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; color: var(--green); }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { color: #555; text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--green); }
-        .nav-cta { background: var(--green); color: #fff !important; padding: 0.6rem 1.2rem; border-radius: 3px; }
-        .nav-cta:hover { background: #1f5c3a; }
+        nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 0.7rem 5%; }
+        .logo { font-family: 'Merriweather', serif; font-size: 1.2rem; font-weight: 700; color: var(--blue); }
+        .logo span { color: var(--orange); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #555; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.5px; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--blue); }
+        .call-btn { background: var(--orange); color: #fff; padding: 0.6rem 1.3rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; }
+        .call-btn:hover { background: #c5610a; }
 
-        /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #e8f5ec 0%, #fdf8ef 50%, #fef9e7 100%); z-index: 0; }
-        .hero-bg::before { content: ''; position: absolute; right: -5%; top: -10%; width: 60%; height: 120%; background: linear-gradient(135deg, rgba(45,122,79,0.06), rgba(232,168,56,0.06)); border-radius: 50%; }
-        .hero-content { position: relative; z-index: 2; padding: 8rem 8% 4rem; max-width: 600px; }
-        .hero-badge { display: inline-block; background: rgba(45,122,79,0.1); color: var(--green); padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
-        .hero h1 { font-size: 3.2rem; line-height: 1.15; margin-bottom: 1.5rem; }
-        .hero h1 em { color: var(--green); font-style: italic; }
-        .hero p { color: #666; font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
-        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn-green { background: var(--green); color: #fff; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; display: inline-block; border-radius: 3px; }
-        .btn-green:hover { background: #1f5c3a; transform: translateY(-2px); }
-        .btn-outline { background: transparent; color: #1a1a1a; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #ccc; transition: 0.3s; display: inline-block; }
-        .btn-outline:hover { border-color: var(--green); color: var(--green); }
-        .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; }
-        .hero-stat .num { font-family: 'Lora', serif; font-size: 2.5rem; color: var(--green); font-weight: 600; }
-        .hero-stat .label { font-size: 0.72rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
-        .hero-right { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 40%; display: flex; align-items: center; justify-content: center; z-index: 1; }
-        .hero-right i { font-size: 18rem; color: rgba(45,122,79,0.08); }
+        .topbar { background: var(--blue); padding: 0.5rem 5%; display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+        .topbar a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 1.5rem; }
+        .topbar a:hover { color: #fff; }
 
-        /* Strip */
-        .strip { background: var(--green); padding: 0.7rem 0; overflow: hidden; }
-        .strip-content { display: flex; animation: stripMove 14s linear infinite; white-space: nowrap; }
-        .strip-content span { color: rgba(255,255,255,0.85); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin: 0 2rem; }
-        @keyframes stripMove { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 5% 4rem; position: relative; }
+        .hero-left { flex: 1; position: relative; z-index: 2; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(30,77,140,0.1); color: var(--blue); padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 1px; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 2.8rem; line-height: 1.2; color: #1a1a1a; margin-bottom: 1.2rem; }
+        .hero h1 em { color: var(--blue); font-style: normal; }
+        .hero h1 .highlight { color: var(--orange); }
+        .hero p { color: #555; font-size: 0.95rem; max-width: 480px; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .btn-blue { background: var(--blue); color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; display: inline-block; }
+        .btn-blue:hover { background: #163d6e; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #1a1a1a; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; border: 1.5px solid #ccc; transition: 0.3s; display: inline-block; }
+        .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+        .hero-stats { display: flex; gap: 2.5rem; }
+        .hero-stat .num { font-family: 'Merriweather', serif; font-size: 2rem; color: var(--blue); font-weight: 700; }
+        .hero-stat .label { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hero-right { flex: 0.9; display: flex; align-items: center; justify-content: center; }
+        .hero-right .placeholder { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #e8f0f8, #f5f0e8); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
+        .hero-right .placeholder i { font-size: 7rem; color: rgba(30,77,140,0.15); }
+        .hero-right .floating { position: absolute; background: #fff; padding: 1rem 1.5rem; box-shadow: 0 5px 30px rgba(0,0,0,0.1); border-radius: 4px; }
+        .hero-right .floating.f1 { bottom: 10%; left: -1rem; display: flex; align-items: center; gap: 0.8rem; }
+        .hero-right .floating .icon { width: 40px; height: 40px; background: rgba(30,77,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hero-right .floating .icon i { color: var(--blue); }
+        .hero-right .floating .f1-text h4 { font-size: 0.85rem; font-weight: 700; }
+        .hero-right .floating .f1-text span { font-size: 0.72rem; color: #888; }
 
-        /* Courses */
+        .strip { background: var(--orange); padding: 0.8rem 5%; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; overflow: hidden; }
+        .strip-item { display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.8rem; font-weight: 600; }
+        .strip-item i { font-size: 0.9rem; }
+
         .courses { padding: 6rem 5%; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); }
-        .section-title { font-family: 'Lora', serif; font-size: 2.5rem; margin: 0.5rem 0; }
-        .section-sub { color: #999; font-size: 0.9rem; }
-        .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1050px; margin: 0 auto; }
-        .course-card { background: #fff; border: 1px solid #eee; padding: 2rem; transition: 0.3s; position: relative; overflow: hidden; }
-        .course-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: var(--green); transition: 0.3s; }
-        .course-card:hover::before { height: 100%; }
-        .course-card:hover { box-shadow: 0 8px 40px rgba(45,122,79,0.1); transform: translateY(-3px); border-color: #e0e8e4; }
-        .course-card .class-badge { display: inline-block; background: var(--cream); color: var(--green); padding: 0.3rem 0.8rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
-        .course-card h3 { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 0.5rem; }
-        .course-card .boards { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; }
-        .course-card p { font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 1rem; }
-        .course-card .subjects { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-        .course-card .subjects span { background: #f5f5f5; padding: 0.3rem 0.6rem; font-size: 0.72rem; color: #666; border-radius: 2px; }
-        .course-card .fee { font-family: 'Lora', serif; font-size: 1.3rem; color: var(--green); font-weight: 600; }
-        .course-card .fee small { font-size: 0.75rem; color: #999; font-family: 'Source Sans 3', sans-serif; font-weight: 400; }
+        .section-label { text-align: center; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 0.5rem; }
+        .section-title { text-align: center; font-family: 'Merriweather', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section-sub { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 3rem; }
+        .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .course-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; transition: 0.3s; position: relative; overflow: hidden; }
+        .course-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+        .course-card .level-badge { display: inline-block; background: rgba(30,77,140,0.08); color: var(--blue); padding: 0.3rem 0.8rem; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .course-card h3 { font-family: 'Merriweather', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .course-card .board { font-size: 0.78rem; color: var(--orange); font-weight: 600; margin-bottom: 0.8rem; }
+        .course-card p { font-size: 0.82rem; color: #777; line-height: 1.6; margin-bottom: 1.2rem; }
+        .course-card .subjects { font-size: 0.75rem; color: #888; line-height: 1.6; }
+        .course-card .subjects strong { color: #333; }
+        .course-card .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid #f0ebe3; }
+        .course-card .price { font-family: 'Merriweather', serif; font-size: 1.2rem; color: var(--blue); font-weight: 700; }
+        .course-card .price small { font-size: 0.72rem; color: #aaa; font-family: 'Nunito', sans-serif; }
+        .course-card . seats { font-size: 0.72rem; color: #e63946; font-weight: 600; }
 
-        /* Why us */
-        .why-us { padding: 6rem 8%; background: var(--cream); display: flex; gap: 4rem; align-items: center; }
-        .why-left { flex: 1; }
-        .why-left .label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
-        .why-left h2 { font-family: 'Lora', serif; font-size: 2.3rem; margin-bottom: 1.5rem; line-height: 1.2; }
-        .why-left p { color: #666; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
-        .why-right { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-        .why-item { background: #fff; padding: 1.5rem; border-left: 3px solid var(--green); }
-        .why-item .icon { font-size: 1.5rem; color: var(--green); margin-bottom: 0.8rem; }
-        .why-item h3 { font-size: 0.95rem; font-family: 'Source Sans 3', sans-serif; font-weight: 600; margin-bottom: 0.3rem; }
-        .why-item p { font-size: 0.8rem; color: #888; line-height: 1.5; }
+        .why-us { padding: 6rem 5%; background: #fff; }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .why-item { text-align: center; padding: 2rem 1rem; }
+        .why-item .icon { width: 70px; height: 70px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+        .why-item .icon i { color: var(--blue); font-size: 1.8rem; }
+        .why-item h3 { font-family: 'Merriweather', serif; font-size: 1rem; margin-bottom: 0.5rem; }
+        .why-item p { font-size: 0.85rem; color: #777; line-height: 1.6; }
 
-        /* Testimonials */
-        .testimonials { padding: 6rem 5%; background: #1a1a1a; color: #fff; }
-        .testimonials .section-label { color: var(--gold); }
-        .testimonials .section-title { color: #fff; }
-        .testimonials .section-sub { color: rgba(255,255,255,0.4); }
-        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .testi-card { background: rgba(255,255,255,0.04); padding: 2rem; border: 1px solid rgba(255,255,255,0.06); }
-        .testi-card .quote { color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem; }
-        .testi-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
-        .testi-card h4 { font-size: 0.9rem; font-weight: 500; }
-        .testi-card span { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+        .results { padding: 6rem 5%; background: var(--blue); color: #fff; }
+        .results .section-label { color: rgba(255,255,255,0.5); }
+        .results .section-title { color: #fff; }
+        .results .section-sub { color: rgba(255,255,255,0.4); }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 0 auto; }
+        .result-item { text-align: center; padding: 2rem 1rem; border: 1px solid rgba(255,255,255,0.1); }
+        .result-item .num { font-family: 'Merriweather', serif; font-size: 2.5rem; color: var(--orange); }
+        .result-item .label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
-        /* Faculty */
-        .faculty { padding: 6rem 5%; }
-        .faculty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .faculty-card { display: flex; gap: 1.5rem; background: var(--cream); padding: 1.5rem; }
-        .faculty-avatar { width: 80px; height: 80px; background: rgba(45,122,79,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .faculty-avatar i { color: var(--green); font-size: 1.8rem; }
-        .faculty-info h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.2rem; }
-        .faculty-info .spec { color: var(--green); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-        .faculty-info p { font-size: 0.82rem; color: #888; line-height: 1.6; }
+        .about { padding: 6rem 5%; display: flex; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .about-left { flex: 1; }
+        .about-left .img-box { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f8, #dce8f5); display: flex; align-items: center; justify-content: center; position: relative; }
+        .about-left .img-box i { font-size: 5rem; color: rgba(30,77,140,0.2); }
+        .about-left .floating { position: absolute; bottom: -1rem; right: -1rem; background: var(--orange); color: #fff; padding: 1rem 1.5rem; }
+        .about-left .floating .year { font-family: 'Merriweather', serif; font-size: 2rem; display: block; line-height: 1; }
+        .about-left .floating span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
+        .about-left { position: relative; }
+        .about-right { flex: 1; }
+        .about-right .tag { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 1rem; }
+        .about-right h2 { font-size: 2rem; margin-bottom: 1.2rem; line-height: 1.3; }
+        .about-right p { color: #555; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1rem; }
+        .about-right .highlight-box { background: rgba(30,77,140,0.06); padding: 1.2rem; border-left: 3px solid var(--blue); margin: 1.5rem 0; }
+        .about-right .highlight-box h4 { font-family: 'Merriweather', serif; font-size: 0.95rem; color: var(--blue); margin-bottom: 0.4rem; }
+        .about-right .highlight-box p { font-size: 0.82rem; color: #666; margin-bottom: 0; }
 
-        /* Schedule */
-        .schedule { padding: 6rem 5%; background: #fff; }
-        .schedule-table { max-width: 800px; margin: 0 auto; }
-        .schedule-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; border-bottom: 1px solid #eee; padding: 1rem 0; font-size: 0.85rem; }
-        .schedule-row.head { font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; }
-        .schedule-row span { color: #666; }
-        .schedule-row .time { color: var(--green); font-weight: 500; }
+        .testimonials { padding: 6rem 5%; }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .testi-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; }
+        .testi-card .quote { color: var(--orange); font-size: 1.5rem; margin-bottom: 1rem; }
+        .testi-card p { font-size: 0.9rem; color: #555; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+        .testi-card .person { display: flex; align-items: center; gap: 0.8rem; }
+        .testi-card .person-avatar { width: 45px; height: 45px; background: rgba(30,77,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .testi-card .person-avatar i { color: var(--blue); font-size: 1.1rem; }
+        .testi-card .person h4 { font-size: 0.88rem; font-weight: 700; }
+        .testi-card .person span { font-size: 0.72rem; color: #888; }
 
-        /* Contact */
-        .contact-section { padding: 6rem 5%; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; }
-        .contact-info h2 { font-family: 'Lora', serif; font-size: 2rem; margin-bottom: 1rem; }
-        .contact-info > p { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
-        .contact-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .contact-item i { width: 42px; height: 42px; background: rgba(45,122,79,0.1); color: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .contact-item strong { display: block; margin-bottom: 0.2rem; font-size: 0.9rem; }
-        .contact-item span { font-size: 0.82rem; color: #888; }
-        .contact-form { background: var(--cream); padding: 2rem; }
-        .contact-form input, .contact-form select { width: 100%; padding: 0.9rem; border: 1px solid #e0d8c8; background: #fff; font-family: 'Source Sans 3', sans-serif; margin-bottom: 1rem; outline: none; font-size: 0.85rem; transition: 0.3s; }
-        .contact-form input:focus, .contact-form select:focus { border-color: var(--green); }
-        .contact-form button { width: 100%; padding: 1rem; background: var(--green); color: #fff; border: none; font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .contact-form button:hover { background: #1f5c3a; }
+        .contact-bar { padding: 4rem 5%; background: #fff; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; }
+        .contact-item .icon { width: 50px; height: 50px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .contact-item .icon i { color: var(--blue); font-size: 1.2rem; }
+        .contact-item h4 { font-size: 0.8rem; font-weight: 700; color: #333; }
+        .contact-item span { font-size: 0.78rem; color: #777; }
 
-        /* Info bar */
-        .info-bar { background: var(--green); padding: 1.5rem 5%; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-        .info-item { color: #fff; font-size: 0.82rem; display: flex; align-items: center; gap: 0.6rem; }
-        .info-item i { font-size: 1rem; }
+        footer { background: #0d1b2a; color: #fff; padding: 4rem 5% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand .logo { font-family: 'Merriweather', serif; font-size: 1.3rem; color: #fff; margin-bottom: 1rem; }
+        .footer-brand .logo span { color: var(--orange); }
+        .footer-brand p { color: #667; font-size: 0.85rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+        .footer-col a { display: block; color: #667; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: 0.3s; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #162030; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.72rem; color: #445; }
 
-        /* Footer */
-        footer { background: #0d0d0d; color: #fff; padding: 3rem 5% 1.5rem; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-        .footer-brand .logo { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--green); margin-bottom: 1rem; }
-        .footer-brand p { color: #666; font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.5rem; }
-        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
-        .footer-col a { display: block; color: #666; text-decoration: none; font-size: 0.82rem; margin-bottom: 0.5rem; transition: 0.3s; }
-        .footer-col a:hover { color: var(--green); }
-        .footer-bottom { border-top: 1px solid #222; padding-top: 1.5rem; text-align: center; }
-        .footer-bottom p { font-size: 0.72rem; color: #444; }
-
-        /* Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .stagger > * { opacity: 0; transform: translateY(20px); transition: 0.5s; }
         .stagger.active > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:0s; }
-        .stagger.active > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:0.1s; }
-        .stagger.active > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:0.2s; }
-        .stagger.active > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:0.3s; }
-        .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.4s; }
-        .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.5s; }
+        .stagger.active > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:0.15s; }
+        .stagger.active > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:0.3s; }
+        .stagger.active > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:0.45s; }
+        .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.6s; }
+        .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
 
-        /* Mobile */
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero-content { padding: 7rem 5% 3rem; }
+            .hero { flex-direction: column; padding-top: 5rem; }
             .hero-right { display: none; }
-            .hero h1 { font-size: 2.4rem; }
-            .hero-stats { gap: 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .course-grid { grid-template-columns: 1fr; }
-            .why-us { flex-direction: column; }
-            .why-right { grid-template-columns: 1fr; }
-            .faculty-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr 1fr; }
+            .about { flex-direction: column; }
+            .about-left .floating { right: 1rem; }
             .testi-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="topbar">
+        <span>📍 Vaishali, Ghaziabad · Near Metro Station · Since 2010</span>
+        <div>
+            <a href="tel:+919876543210">📞 +91 98765 43210</a>
+            <a href="mailto:info@excelcoaching.in">✉️ info@excelcoaching.in</a>
+        </div>
+    </div>
+
     <nav id="navbar">
-        <div class="logo">Excel Coaching</div>
+        <div class="logo">Excel<span>Coaching</span></div>
         <ul>
             <li><a href="#courses">Courses</a></li>
-            <li><a href="#faculty">Faculty</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#reviews">Results</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Free Demo Class</a>
+        <a href="tel:+919876543210" class="call-btn">📞 Call Now</a>
     </nav>
 
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-badge">Est. 2010 · Vaishali Nagar, Jaipur</div>
-            <h1>Don't Just Pass.<br><em>Excel.</em></h1>
-            <p>We've been helping students in Jaipur score higher since 2010. Not by teaching to the test, but by building real understanding. Our students don't just memorize — they learn how to think, which works for every exam they'll ever face.</p>
+        <div class="hero-left">
+            <div class="hero-badge"><i class="fas fa-graduation-cap"></i> CBSE & ICSE · Classes 6–12</div>
+            <h1>Your Child's Report Card<br>Should Reflect<br><em>What They're </em><span class="highlight">Actually Capable Of</span></h1>
+            <p>I'm Rajesh Kumar, founder of Excel Coaching. I've been teaching Class 8–12 Math and Science for 15 years — first at a government school, then as a tutor, and now running this centre with my team of 4 teachers. We've helped over 2,200 students improve their scores. Not all of them became toppers. But almost all of them started understanding what they were learning in school — which is really the point.</p>
             <div class="hero-btns">
-                <a href="#courses" class="btn-green">View Courses</a>
-                <a href="#contact" class="btn-outline">Book Free Demo</a>
+                <a href="#courses" class="btn-blue">View Courses & Fees</a>
+                <a href="#contact" class="btn-outline">Book Free Demo Class</a>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="num">94%</div><div class="label">Pass Rate</div></div>
-                <div class="hero-stat"><div class="num">15+</div><div class="label">Years Teaching</div></div>
-                <div class="hero-stat"><div class="num">2,500+</div><div class="label">Students Taught</div></div>
+                <div class="hero-stat"><div class="num">2,200+</div><div class="label">Students Taught</div></div>
+                <div class="hero-stat"><div class="num">15</div><div class="label">Years Experience</div></div>
+                <div class="hero-stat"><div class="num">94%</div><div class="label">Improvement Rate</div></div>
             </div>
         </div>
         <div class="hero-right">
-            <i class="fas fa-graduation-cap"></i>
+            <div class="placeholder">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div class="floating f1">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <div class="f1-text">
+                        <h4>4.8 on Google</h4>
+                        <span>187 reviews</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <div class="strip">
-        <div class="strip-content">
-            <span>📚 CBSE & ICSE Classes 6-12</span>
-            <span>🧪 Science, Commerce & Humanities</span>
-            <span>💯 94% Board Pass Rate</span>
-            <span>👨‍🏫 Expert Faculty — All IIT/NIT Alumni</span>
-            <span>📍 Vaishali Nagar, Jaipur — Since 2010</span>
-            <span>📚 CBSE & ICSE Classes 6-12</span>
-            <span>🧪 Science, Commerce & Humanities</span>
-            <span>💯 94% Board Pass Rate</span>
-            <span>👨‍🏫 Expert Faculty — All IIT/NIT Alumni</span>
-            <span>📍 Vaishali Nagar, Jaipur — Since 2010</span>
-        </div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> Small Batches — Max 18 Students</div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> CBSE & ICSE Both Boards</div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> Free Doubt Sessions</div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> Classes 6–12 · All Subjects</div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> Demo Class Before Enrollment</div>
     </div>
 
     <section class="courses" id="courses">
-        <div class="section-header reveal">
-            <div class="section-label">Our Programs</div>
-            <h2 class="section-title">Choose Your Class</h2>
-            <p class="section-sub">All boards. All subjects. batches for Class 6 to 12.</p>
-        </div>
+        <div class="section-label reveal">Our Programs</div>
+        <h2 class="section-title reveal">What We Teach</h2>
+        <p class="section-sub reveal">Classes 6–12, CBSE and ICSE. Batches start every month. Demo class is free — your child attends 2 sessions before you decide.</p>
         <div class="course-grid stagger">
             <div class="course-card">
-                <div class="class-badge">Class 6–8</div>
+                <div class="level-badge">Classes 6–8</div>
                 <h3>Foundation Building</h3>
-                <div class="boards">CBSE · ICSE</div>
-                <p>Build a strong base in Science and Math. The concepts students learn in these years form the foundation for everything that comes after.</p>
-                <div class="subjects">
-                    <span>Mathematics</span><span>Science</span><span>English</span><span>SST</span>
+                <div class="board">CBSE · ICSE</div>
+                <p>Most students who struggle in Class 9 and 10 weren't weak in Class 10 — they had foundation gaps from Class 6 and 7. We catch these gaps early and ensure your child actually understands concepts, not just memorizes formulas.</p>
+                <div class="subjects"><strong>Math, Science, English, SST</strong><br>Batch strength: 15 max</div>
+                <div class="price-row">
+                    <div class="price">₹2,200<small>/month</small></div>
+                    <div class="seats">4 seats left</div>
                 </div>
-                <div class="fee">₹2,500 <small>/month</small></div>
             </div>
             <div class="course-card">
-                <div class="class-badge">Class 9–10</div>
+                <div class="level-badge">Class 9–10</div>
                 <h3>Board Prep Intensive</h3>
-                <div class="boards">CBSE · ICSE</div>
-                <p>Two years of board preparation compressed and made efficient. We focus on concepts AND exam strategy — most students lose marks on things they know, not things they don't.</p>
-                <div class="subjects">
-                    <span>Maths</span><span>Science</span><span>English</span><span>SST</span>
+                <div class="board">CBSE · ICSE</div>
+                <p>Class 10 boards decide a lot for the next phase. We don't just prepare for the exam — we build the conceptual foundation that Class 11 requires. Students who do well in our Class 9–10 program rarely struggle in PCM in Class 11–12.</p>
+                <div class="subjects"><strong>Math, Science, Social Science, English</strong><br>Batch strength: 15 max</div>
+                <div class="price-row">
+                    <div class="price">₹2,800<small>/month</small></div>
+                    <div class="seats">2 seats left</div>
                 </div>
-                <div class="fee">₹3,500 <small>/month</small></div>
             </div>
             <div class="course-card">
-                <div class="class-badge">Class 11–12</div>
-                <h3>Science & Commerce</h3>
-                <div class="boards">CBSE · Commerce</div>
-                <p>JEE, NEET, CUET prep or board-focused — we have separate tracks for both. PCMB or Commerce stream. Faculty specialized in their respective subjects.</p>
-                <div class="subjects">
-                    <span>Physics</span><span>Chemistry</span><span>Maths/Bio</span><span>Accounts</span><span>Economics</span>
+                <div class="level-badge">Class 11–12</div>
+                <h3>Senior Secondary Prep</h3>
+                <div class="board">CBSE · ISC</div>
+                <p>Our Class 11–12 program is for students targeting PCM or PCB in Class 12 and entrance exams. We don't take PCMB combined — it's either PCM or PCB. We keep batches small because Physics and Math at this level require individual attention.</p>
+                <div class="subjects"><strong>Physics, Chemistry, Math (PCM) OR Biology (PCB)</strong><br>Batch strength: 12 max</div>
+                <div class="price-row">
+                    <div class="price">₹3,500<small>/month</small></div>
+                    <div class="seats">6 seats left</div>
                 </div>
-                <div class="fee">₹4,500 <small>/month</small></div>
             </div>
         </div>
-        <p style="text-align:center;margin-top:2rem;font-size:0.85rem;color:#999;" class="reveal">Fees are per subject per month. Take 3+ subjects and save 15%. Demo class always free — no obligations.</p>
+        <p style="text-align:center;margin-top:2rem;font-size:0.82rem;color:#888;" class="reveal">Fees are monthly. No advance for full year required — pay month by month. Books and notes included.</p>
     </section>
 
-    <section class="why-us" id="faculty">
-        <div class="why-left reveal">
-            <div class="label">Why Excel Coaching</div>
-            <h2>Real Teachers.<br>Not Just Tutors.</h2>
-            <p>Most coaching centers hire college students or recent graduates to teach. Our faculty has an average of 12 years of teaching experience. They're not just teaching the subject — they're teaching students how to learn.</p>
-            <p>We've had the same 8 teachers for 5+ years. That consistency matters. Your child doesn't have to re-adjust to a new teacher's style every few months.</p>
-        </div>
-        <div class="why-right stagger">
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                <h3>IIT/NIT Background</h3>
-                <p>All science faculty from IITs and NITs. They know how to teach because they were top students themselves.</p>
-            </div>
+    <section class="why-us" id="why-us">
+        <div class="section-label reveal">Why Parents Choose Us</div>
+        <h2 class="section-title reveal">What Makes Excel Different</h2>
+        <p class="section-sub reveal">Not a coaching factory. Not a run-and-teach operation. A centre that's been in Vaishali for 16 years.</p>
+        <div class="why-grid stagger">
             <div class="why-item">
                 <div class="icon"><i class="fas fa-users"></i></div>
-                <h3>Small Batches</h3>
-                <p>Maximum 15 students per batch. Not 40. Your child gets attention, not lost in a crowd.</p>
+                <h3>Small Batches, Always</h3>
+                <p>Maximum 15 students in a batch. Not 30. Not 40. When a class has 30 students, the teacher teaches to the front row. We don't operate that way.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon"><i class="fas fa-redo"></i></div>
+                <h3>Free Doubt Sessions</h3>
+                <p>Every Saturday 3–5 PM, students can walk in with any question from any subject — no appointment needed. This has been running since 2012 without a single missed week.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon"><i class="fas fa-user-check"></i></div>
+                <h3>Direct Access to Me</h3>
+                <p>My mobile number is on the welcome letter I give every parent. If your child's marks drop or they're struggling, you can message me directly. I respond within 4 hours during working hours.</p>
             </div>
             <div class="why-item">
                 <div class="icon"><i class="fas fa-file-alt"></i></div>
-                <h3>Weekly Tests</h3>
-                <p>Every Saturday. Track progress rigorously. Share reports with parents. No surprises at the board exam.</p>
+                <h3>Regular Tests & Reports</h3>
+                <p>Monthly tests based on school exam pattern. Parents receive a written progress report every 2 months — not just marks, but specific areas where the child is improving or struggling.</p>
             </div>
             <div class="why-item">
-                <div class="icon"><i class="fas fa-headset"></i></div>
-                <h3>Parent-Teacher Connect</h3>
-                <p>Monthly parent meetings. WhatsApp group for daily updates. We're partners in your child's education.</p>
+                <div class="icon"><i class="fas fa-chalkboard"></i></div>
+                <h3>Teacher Stability</h3>
+                <p>Three of our four teachers have been here for over 5 years. We don't hire cheap fresh graduates who leave in 3 months. Consistency matters for students.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon"><i class="fas fa-rupee-sign"></i></div>
+                <h3>Honest Pricing</h3>
+                <p>₹2,200/month for Classes 6–8 is what we charge. We don't have a "discount for full year" structure that penalizes parents who can't pay upfront. Month-by-month is fine.</p>
             </div>
         </div>
     </section>
 
-    <section class="faculty" id="faculty">
-        <div class="section-header reveal">
-            <div class="section-label">Meet The Faculty</div>
-            <h2 class="section-title">Our Teachers</h2>
-            <p class="section-sub">Experienced, specialized, and invested in every student's success</p>
+    <section class="results" id="results">
+        <div class="section-label reveal" style="color:rgba(255,255,255,0.5);">Proof</div>
+        <h2 class="section-title reveal">Numbers Don't Lie</h2>
+        <p class="section-sub reveal">Based on internal tracking across all batches since 2015</p>
+        <div class="results-grid stagger">
+            <div class="result-item">
+                <div class="num">2,200+</div>
+                <div class="label">Students Taught</div>
+            </div>
+            <div class="result-item">
+                <div class="num">94%</div>
+                <div class="label">Improved by ≥1 Grade</div>
+            </div>
+            <div class="result-item">
+                <div class="num">87%</div>
+                <div class="label">Class 10 Board 90%+</div>
+            </div>
+            <div class="result-item">
+                <div class="num">4.8/5</div>
+                <div class="label">Google Rating</div>
+            </div>
         </div>
-        <div class="faculty-grid stagger">
-            <div class="faculty-card">
-                <div class="faculty-avatar"><i class="fas fa-user"></i></div>
-                <div class="faculty-info">
-                    <h3>Rajesh Kumar Sir</h3>
-                    <div class="spec">Physics · IIT Roorkee Alumni</div>
-                    <p>15 years teaching Physics for JEE and board exams. Known for making the hardest concepts simple. Student rating: 4.9/5 for last 6 consecutive years.</p>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-left reveal">
+            <div class="img-box">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div class="floating">
+                    <span class="year">16</span>
+                    <span>Years in Vaishali</span>
                 </div>
             </div>
-            <div class="faculty-card">
-                <div class="faculty-avatar"><i class="fas fa-user"></i></div>
-                <div class="faculty-info">
-                    <h3>Sunita Sharma Ma'am</h3>
-                    <div class="spec">Mathematics · NIT Jaipur</div>
-                    <p>Maths teacher for Classes 9-12 and JEE foundation. Her students have scored 100/100 in board exams 3 years running. Special talent for identifying exactly where a student is struggling.</p>
-                </div>
+        </div>
+        <div class="about-right reveal">
+            <div class="tag">About the Centre</div>
+            <h2>Rajesh Kumar — Founder & Lead Teacher</h2>
+            <p>I did my B.Sc. from CCS University, Meerut and a B.Ed. from MDU, Rohtak. I taught Class 9–12 Math at a government school in Bulandshahr from 2008 to 2012. I left because I wanted to give more attention to students than the 1:60 ratio allowed. I opened Excel Coaching in Vaishali in January 2010 with 8 students in one room.</p>
+            <p>Today we have 4 teachers, approximately 100 active students, and a waiting list for some batches. That sounds like bragging but I'm just stating facts — the reason we have a waiting list is that I refuse to add students beyond what our batch capacity allows, even when parents request it.</p>
+            <div class="highlight-box">
+                <h4>My Teaching Philosophy</h4>
+                <p>"I don't think every child needs to become a topper. I think every child deserves to understand what's being taught to them. If your child finishes Class 10 with a genuine understanding of basic algebra and science — not just the ability to pass — they're ahead of 80% of students entering Class 11."</p>
             </div>
         </div>
     </section>
 
-    <section class="schedule" id="schedule">
-        <div class="section-header reveal">
-            <div class="section-label">Class Schedule</div>
-            <h2 class="section-title">Weekly Timings</h2>
-            <p class="section-sub">Classes run 6 days a week. Sunday is off.</p>
-        </div>
-        <div class="schedule-table reveal">
-            <div class="schedule-row head"><span>Class</span><span>Morning</span><span>Evening</span><span>Duration</span></div>
-            <div class="schedule-row"><span>Class 6-8</span><span class="time">7-9 AM</span><span>4-6 PM</span><span>2 hours</span></div>
-            <div class="schedule-row"><span>Class 9-10</span><span>6-8 AM</span><span>5-7 PM</span><span>2 hours</span></div>
-            <div class="schedule-row"><span>Class 11-12 Science</span><span>6-9 AM</span><span>5-8 PM</span><span>3 hours</span></div>
-            <div class="schedule-row"><span>Class 11-12 Commerce</span><span>7-9 AM</span><span>6-8 PM</span><span>2 hours</span></div>
-            <div class="schedule-row"><span>Saturday Test</span><span>8-11 AM</span><span>3-6 PM</span><span>3 hours</span></div>
-        </div>
-    </section>
-
-    <section class="testimonials" id="reviews">
-        <div class="section-header reveal">
-            <div class="section-label">Results</div>
-            <h2 class="section-title">What Parents Say</h2>
-            <p class="section-sub">Real outcomes from real families</p>
-        </div>
+    <section class="testimonials">
+        <div class="section-label reveal">Reviews</div>
+        <h2 class="section-title reveal">What Parents Say</h2>
+        <p class="section-sub reveal">Real reviews, names available on Google</p>
         <div class="testi-grid stagger">
             <div class="testi-card">
                 <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"My son was failing Math in Class 9. Within 6 months at Excel, he went from 32 marks to 78. Now in Class 12 and consistently scoring 85+. The teachers here actually care — not just about results but about understanding. Best coaching in Vaishali Nagar, no question."</p>
-                <h4>Anita Sharma</h4>
-                <span>Parent of Aryan Sharma, Class 12 Science</span>
+                <p>"My daughter Arpita was failing Math in Class 8. She dreaded going to tuition because her previous tutor made her feel stupid for asking basic questions. Within 4 months with Rajesh Sir, her Class 8 final exam score went from 38 to 71. She's now in Class 10 and consistently scoring 85+. The change wasn't just academic — she actually started enjoying Math. I cried when I saw her Class 9 report card."</p>
+                <div class="person">
+                    <div class="person-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4>Sunita Devi</h4>
+                        <span>Mother of Arpita, Class 10 · DPS Vaishali</span>
+                    </div>
+                </div>
             </div>
             <div class="testi-card">
                 <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"Both my daughters studied here — one is now in NIT Kurukshetra, the other in Class 12. The monthly parent meetings were incredibly helpful. We always knew where she stood. Rajesh Sir is exceptional — my younger daughter specifically asked to be in his batch."</p>
-                <h4>Vijay Kumar</h4>
-                <span>Parent of Priya & Kavya, Alumni & Current Student</span>
+                <p>"My son Aryan was in a large batch tuitions centre before Excel. He was just another student — nobody knew his name, nobody tracked where he was struggling. Rajesh Sir identified in the first 3 weeks that Aryan's issue wasn't Math — it was foundational gaps from Class 6. We spent 2 months just on Class 6 and 7 concepts before touching Class 9 material. That's honesty you don't find easily. Aryan scored 94% in Class 10 boards last year."</p>
+                <div class="person">
+                    <div class="person-avatar"><i class="fas fa-user"></i></div>
+                   div>
+                        <h4>Vikram Sharma</h4>
+                        <span>Father of Aryan, Class 11 PCM · Amity International</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="info-bar">
-        <div class="info-item"><i class="fas fa-clock"></i> Mon-Sat: 6 AM – 9 PM</div>
-        <div class="info-item"><i class="fas fa-map-marker-alt"></i> 45, Near Vaishali Nagar Circle, Jaipur 302021</div>
-        <div class="info-item"><i class="fas fa-phone"></i> +91 98765 43210</div>
-        <div class="info-item"><i class="fas fa-whatsapp"></i> WhatsApp: +91 98765 43210</div>
+    <div class="contact-bar" id="contact">
+        <div class="contact-item reveal">
+            <div class="icon"><i class="fas fa-phone"></i></div>
+            <div>
+                <h4>Call / WhatsApp</h4>
+                <span>+91 98765 43210</span>
+            </div>
+        </div>
+        <div class="contact-item reveal">
+            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+                <h4>Visit Us</h4>
+                <span>23, Sector 5, Vaishali, Ghaziabad 201010</span>
+            </div>
+        </div>
+        <div class="contact-item reveal">
+            <div class="icon"><i class="fas fa-clock"></i></div>
+            <div>
+                <h4>Class Hours</h4>
+                <span>Mon–Sat: 4–8 PM · Sun: 9 AM–1 PM</span>
+            </div>
+        </div>
+        <div class="contact-item reveal">
+            <div class="icon"><i class="fas fa-calendar-check"></i></div>
+            <div>
+                <h4>Demo Class</h4>
+                <span>Book Free 2-Session Demo Anytime</span>
+            </div>
+        </div>
     </div>
-
-    <section class="contact-section" id="contact">
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <h2>Book Your<br>Free Demo Class</h2>
-                <p>Your child attends one real class — free, no strings attached. See if our teaching style works for them before committing. We recommend attending the subject they find most challenging.</p>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div><strong>Call / WhatsApp</strong><span>+91 98765 43210</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div><strong>Location</strong><span>45, Near Vaishali Nagar Circle, Jaipur</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div><strong>Visiting Hours</strong><span>Mon-Sat: 9 AM – 7 PM</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div><strong>Email</strong><span>info@excelcoaching.in</span></div>
-                </div>
-            </div>
-            <div class="contact-form reveal">
-                <form>
-                    <input type="text" placeholder="Parent's Name">
-                    <input type="tel" placeholder="Phone Number">
-                    <input type="text" placeholder="Student's Name">
-                    <select>
-                        <option>Class</option>
-                        <option>Class 6</option><option>Class 7</option><option>Class 8</option>
-                        <option>Class 9</option><option>Class 10</option>
-                        <option>Class 11</option><option>Class 12</option>
-                    </select>
-                    <select>
-                        <option>Board</option>
-                        <option>CBSE</option><option>ICSE</option><option>RBSE</option>
-                    </select>
-                    <input type="text" placeholder="Subject needing help (optional)">
-                    <button type="submit">Book Free Demo Class</button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <div class="logo">Excel Coaching Classes</div>
-                <p>Vaishali Nagar's most trusted coaching since 2010. Small batches, expert faculty, and a genuine commitment to every student's success.</p>
+                <div class="logo">Excel<span>Coaching</span></div>
+                <p>Coaching centre for Classes 6–12, CBSE and ICSE. Founded by Rajesh Kumar in 2010. Small batches, honest teaching, real results.</p>
             </div>
             <div class="footer-col">
                 <h4>Programs</h4>
-                <a href="#courses">Class 6-8</a>
-                <a href="#courses">Class 9-10</a>
-                <a href="#courses">Class 11-12 Science</a>
-                <a href="#courses">Class 11-12 Commerce</a>
+                <a href="#courses">Classes 6–8</a>
+                <a href="#courses">Classes 9–10</a>
+                <a href="#courses">Classes 11–12</a>
+                <a href="#">Free Doubt Sessions</a>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
-                <a href="#faculty">Faculty</a>
-                <a href="#schedule">Schedule</a>
-                <a href="#reviews">Results & Reviews</a>
-                <a href="#contact">Book Demo</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#results">Results</a>
+                <a href="#about">About Rajesh Sir</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="footer-col">
                 <h4>Contact</h4>
-                <a href="#">45, Vaishali Nagar, Jaipur</a>
-                <a href="#">+91 98765 43210</a>
-                <a href="#">info@excelcoaching.in</a>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="mailto:info@excelcoaching.in">info@excelcoaching.in</a>
+                <a href="#">23, Sector 5, Vaishali</a>
+                <a href="#">Ghaziabad 201010</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Excel Coaching Classes. All rights reserved.</p>
+            <p>© 2026 Excel Coaching, Vaishali, Ghaziabad. All rights reserved.</p>
         </div>
     </footer>
 
@@ -444,6 +445,12 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => { e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
