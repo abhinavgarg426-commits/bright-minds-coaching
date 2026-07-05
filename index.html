@@ -12,128 +12,127 @@
         h1, h2, h3 { font-family: 'Merriweather', serif; }
         :root { --blue: #1e4d8c; --orange: #e8720c; }
 
-        nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.4s; }
-        nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 0.7rem 5%; }
-        .logo { font-family: 'Merriweather', serif; font-size: 1.2rem; font-weight: 700; color: var(--blue); }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 700; color: var(--blue); text-decoration: none; }
         .logo span { color: var(--orange); }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: #555; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.5px; font-weight: 500; transition: 0.3s; }
+        .nav-links a { color: #555; text-decoration: none; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--blue); }
-        .call-btn { background: var(--orange); color: #fff; padding: 0.6rem 1.3rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; }
-        .call-btn:hover { background: #c5610a; }
+        .nav-cta { background: var(--orange); color: #fff; padding: 0.6rem 1.3rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
+        .nav-cta:hover { background: #c5610a; }
 
-        .topbar { background: var(--blue); padding: 0.5rem 5%; display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+        .topbar { background: var(--blue); padding: 0.5rem 2rem; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; gap: 0.5rem; }
         .topbar a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 1.5rem; }
         .topbar a:hover { color: #fff; }
 
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 5% 4rem; position: relative; }
-        .hero-left { flex: 1; position: relative; z-index: 2; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(30,77,140,0.1); color: var(--blue); padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 1px; font-weight: 600; margin-bottom: 1.5rem; }
-        .hero h1 { font-size: 2.8rem; line-height: 1.2; color: #1a1a1a; margin-bottom: 1.2rem; }
+        /* FIXED: Full-bleed hero bg image, no blocking element */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1800&q=85'); background-size: cover; background-position: center; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(248,246,240,0.97) 0%, rgba(248,246,240,0.88) 45%, rgba(248,246,240,0.2) 100%); }
+        .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 7rem 3rem 4rem; display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
+        .hero-text { max-width: 520px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(30,77,140,0.1); color: var(--blue); padding: 0.35rem 1rem; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 2.8rem; line-height: 1.15; margin-bottom: 1.2rem; }
         .hero h1 em { color: var(--blue); font-style: normal; }
         .hero h1 .highlight { color: var(--orange); }
-        .hero p { color: #555; font-size: 0.95rem; max-width: 480px; line-height: 1.8; margin-bottom: 2rem; }
-        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
-        .btn-blue { background: var(--blue); color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; display: inline-block; }
+        .hero p { color: #555; font-size: 0.9rem; max-width: 460px; line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+        .hero-btns { display: flex; gap: 1rem; }
+        .btn-blue { background: var(--blue); color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; display: inline-block; }
         .btn-blue:hover { background: #163d6e; transform: translateY(-2px); }
-        .btn-outline { background: transparent; color: #1a1a1a; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; border: 1.5px solid #ccc; transition: 0.3s; display: inline-block; }
+        .btn-outline { border: 1.5px solid #ccc; color: #1a1a1a; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; transition: 0.3s; display: inline-block; }
         .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
-        .hero-stats { display: flex; gap: 2.5rem; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
         .hero-stat .num { font-family: 'Merriweather', serif; font-size: 2rem; color: var(--blue); font-weight: 700; }
-        .hero-stat .label { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
-        .hero-right { flex: 0.9; display: flex; align-items: center; justify-content: center; }
-        .hero-right .placeholder { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #e8f0f8, #f5f0e8); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
-        .hero-right .placeholder i { font-size: 7rem; color: rgba(30,77,140,0.15); }
-        .hero-right .floating { position: absolute; background: #fff; padding: 1rem 1.5rem; box-shadow: 0 5px 30px rgba(0,0,0,0.1); border-radius: 4px; }
-        .hero-right .floating.f1 { bottom: 10%; left: -1rem; display: flex; align-items: center; gap: 0.8rem; }
-        .hero-right .floating .icon { width: 40px; height: 40px; background: rgba(30,77,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .hero-right .floating .icon i { color: var(--blue); }
-        .hero-right .floating .f1-text h4 { font-size: 0.85rem; font-weight: 700; }
-        .hero-right .floating .f1-text span { font-size: 0.72rem; color: #888; }
+        .hero-stat .label { font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hero-right { position: relative; z-index: 2; flex-shrink: 0; }
+        .hero-right img { width: 340px; height: 400px; object-fit: cover; display: block; }
+        .hero-right .floating { position: absolute; bottom: 1.5rem; left: -1.5rem; background: #fff; padding: 1rem 1.3rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        .hero-right .floating .stars { color: #f5a623; font-size: 0.78rem; margin-bottom: 0.3rem; }
+        .hero-right .floating p { font-size: 0.82rem; font-weight: 600; }
+        .hero-right .floating span { font-size: 0.72rem; color: #888; }
 
-        .strip { background: var(--orange); padding: 0.8rem 5%; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; overflow: hidden; }
-        .strip-item { display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.8rem; font-weight: 600; }
-        .strip-item i { font-size: 0.9rem; }
+        .strip { background: var(--orange); padding: 0.8rem 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .strip-item { display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.75rem; font-weight: 600; }
 
-        .courses { padding: 6rem 5%; }
-        .section-label { text-align: center; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 0.5rem; }
-        .section-title { text-align: center; font-family: 'Merriweather', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .section-sub { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 3rem; }
+        .courses { padding: 6rem 2rem; }
+        .courses .header { max-width: 1200px; margin: 0 auto 3rem; text-align: center; }
+        .courses .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
+        .courses h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0; }
+        .courses .sub { color: #888; font-size: 0.88rem; }
         .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .course-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; transition: 0.3s; position: relative; overflow: hidden; }
-        .course-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
-        .course-card .level-badge { display: inline-block; background: rgba(30,77,140,0.08); color: var(--blue); padding: 0.3rem 0.8rem; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .course-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; transition: 0.3s; }
+        .course-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: var(--blue); }
+        .course-card .level-badge { display: inline-block; background: rgba(30,77,140,0.08); color: var(--blue); padding: 0.3rem 0.8rem; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
         .course-card h3 { font-family: 'Merriweather', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .course-card .board { font-size: 0.78rem; color: var(--orange); font-weight: 600; margin-bottom: 0.8rem; }
-        .course-card p { font-size: 0.82rem; color: #777; line-height: 1.6; margin-bottom: 1.2rem; }
-        .course-card .subjects { font-size: 0.75rem; color: #888; line-height: 1.6; }
+        .course-card .board { font-size: 0.75rem; color: var(--orange); font-weight: 600; margin-bottom: 0.8rem; }
+        .course-card p { font-size: 0.82rem; color: #777; line-height: 1.65; margin-bottom: 1rem; }
+        .course-card .subjects { font-size: 0.75rem; color: #888; line-height: 1.65; }
         .course-card .subjects strong { color: #333; }
         .course-card .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid #f0ebe3; }
         .course-card .price { font-family: 'Merriweather', serif; font-size: 1.2rem; color: var(--blue); font-weight: 700; }
-        .course-card .price small { font-size: 0.72rem; color: #aaa; font-family: 'Nunito', sans-serif; }
-        .course-card . seats { font-size: 0.72rem; color: #e63946; font-weight: 600; }
+        .course-card .price small { font-size: 0.68rem; color: #aaa; font-family: 'Nunito', sans-serif; }
+        .course-card .seats { font-size: 0.72rem; color: #e63946; font-weight: 600; }
 
-        .why-us { padding: 6rem 5%; background: #fff; }
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
-        .why-item { text-align: center; padding: 2rem 1rem; }
-        .why-item .icon { width: 70px; height: 70px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
-        .why-item .icon i { color: var(--blue); font-size: 1.8rem; }
-        .why-item h3 { font-family: 'Merriweather', serif; font-size: 1rem; margin-bottom: 0.5rem; }
-        .why-item p { font-size: 0.85rem; color: #777; line-height: 1.6; }
-
-        .results { padding: 6rem 5%; background: var(--blue); color: #fff; }
-        .results .section-label { color: rgba(255,255,255,0.5); }
-        .results .section-title { color: #fff; }
-        .results .section-sub { color: rgba(255,255,255,0.4); }
+        .results { padding: 6rem 2rem; background: var(--blue); }
+        .results .header { max-width: 1200px; margin: 0 auto 3rem; text-align: center; }
+        .results .label { color: rgba(255,255,255,0.4); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; }
+        .results h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; color: #fff; margin: 0.5rem 0; }
         .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 0 auto; }
         .result-item { text-align: center; padding: 2rem 1rem; border: 1px solid rgba(255,255,255,0.1); }
         .result-item .num { font-family: 'Merriweather', serif; font-size: 2.5rem; color: var(--orange); }
-        .result-item .label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
+        .result-item .label { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
-        .about { padding: 6rem 5%; display: flex; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
-        .about-left { flex: 1; }
-        .about-left .img-box { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f8, #dce8f5); display: flex; align-items: center; justify-content: center; position: relative; }
-        .about-left .img-box i { font-size: 5rem; color: rgba(30,77,140,0.2); }
+        .about-section { padding: 6rem 2rem; display: flex; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; }
+        .about-left { flex: 1; min-width: 280px; position: relative; }
+        .about-left img { width: 100%; height: 380px; object-fit: cover; display: block; }
         .about-left .floating { position: absolute; bottom: -1rem; right: -1rem; background: var(--orange); color: #fff; padding: 1rem 1.5rem; }
-        .about-left .floating .year { font-family: 'Merriweather', serif; font-size: 2rem; display: block; line-height: 1; }
-        .about-left .floating span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
-        .about-left { position: relative; }
-        .about-right { flex: 1; }
-        .about-right .tag { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 1rem; }
-        .about-right h2 { font-size: 2rem; margin-bottom: 1.2rem; line-height: 1.3; }
-        .about-right p { color: #555; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1rem; }
+        .about-left .floating .year { font-family: 'Merriweather', serif; font-size: 2.5rem; display: block; line-height: 1; }
+        .about-left .floating span { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 1px; }
+        .about-right { flex: 1; min-width: 280px; }
+        .about-right .label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 1rem; }
+        .about-right h2 { font-family: 'Merriweather', serif; font-size: 2rem; margin-bottom: 1.2rem; line-height: 1.3; }
+        .about-right p { color: #555; font-size: 0.88rem; line: 1.8; margin-bottom: 1rem; font-weight: 300; }
         .about-right .highlight-box { background: rgba(30,77,140,0.06); padding: 1.2rem; border-left: 3px solid var(--blue); margin: 1.5rem 0; }
         .about-right .highlight-box h4 { font-family: 'Merriweather', serif; font-size: 0.95rem; color: var(--blue); margin-bottom: 0.4rem; }
         .about-right .highlight-box p { font-size: 0.82rem; color: #666; margin-bottom: 0; }
 
-        .testimonials { padding: 6rem 5%; }
-        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .testimonials { padding: 6rem 2rem; position: relative; overflow: hidden; }
+        .testi-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=80'); background-size: cover; background-position: center; }
+        .testi-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.95); }
+        .testimonials .content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        .testimonials .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
+        .testimonials h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0 3rem; }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         .testi-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; }
-        .testi-card .quote { color: var(--orange); font-size: 1.5rem; margin-bottom: 1rem; }
-        .testi-card p { font-size: 0.9rem; color: #555; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+        .testi-card .quote { color: var(--orange); font-size: 1.4rem; margin-bottom: 1rem; }
+        .testi-card p { font-size: 0.88rem; color: #555; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
         .testi-card .person { display: flex; align-items: center; gap: 0.8rem; }
         .testi-card .person-avatar { width: 45px; height: 45px; background: rgba(30,77,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .testi-card .person-avatar i { color: var(--blue); font-size: 1.1rem; }
+        .testi-card .person-avatar i { color: var(--blue); }
         .testi-card .person h4 { font-size: 0.88rem; font-weight: 700; }
         .testi-card .person span { font-size: 0.72rem; color: #888; }
 
-        .contact-bar { padding: 4rem 5%; background: #fff; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-        .contact-item { display: flex; align-items: center; gap: 1rem; }
-        .contact-item .icon { width: 50px; height: 50px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .contact-item .icon i { color: var(--blue); font-size: 1.2rem; }
-        .contact-item h4 { font-size: 0.8rem; font-weight: 700; color: #333; }
-        .contact-item span { font-size: 0.78rem; color: #777; }
+        .contact-section { padding: 5rem 2rem; text-align: center; background: #fff; }
+        .contact-section .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
+        .contact-section h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0; }
+        .contact-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; }
+        .contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border: 1px solid #eee; background: #fafaf8; }
+        .contact-card .icon { width: 50px; height: 50px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .contact-card .icon i { color: var(--blue); font-size: 1.2rem; }
+        .contact-card h4 { font-size: 0.82rem; font-weight: 700; }
+        .contact-card span { font-size: 0.78rem; color: #777; }
 
-        footer { background: #0d1b2a; color: #fff; padding: 4rem 5% 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-        .footer-brand .logo { font-family: 'Merriweather', serif; font-size: 1.3rem; color: #fff; margin-bottom: 1rem; }
+        footer { background: #0d1b2a; color: #fff; padding: 4rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .footer-brand .logo { font-family: 'Merriweather', serif; font-size: 1.2rem; color: #fff; margin-bottom: 1rem; }
         .footer-brand .logo span { color: var(--orange); }
-        .footer-brand p { color: #667; font-size: 0.85rem; line-height: 1.8; margin-bottom: 1.5rem; }
-        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
-        .footer-col a { display: block; color: #667; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: 0.3s; }
+        .footer-brand p { color: #445; font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .footer-col h4 { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+        .footer-col a { display: block; color: #445; text-decoration: none; font-size: 0.82rem; margin-bottom: 0.55rem; transition: 0.3s; }
         .footer-col a:hover { color: #fff; }
-        .footer-bottom { border-top: 1px solid #162030; padding-top: 2rem; text-align: center; }
-        .footer-bottom p { font-size: 0.72rem; color: #445; }
+        .footer-bottom { border-top: 1px solid #162030; padding-top: 2rem; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { font-size: 0.68rem; color: #334; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -145,17 +144,23 @@
         .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.6s; }
         .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
 
-        @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero { flex-direction: column; padding-top: 5rem; }
-            .hero-right { display: none; }
+        @media(max-width:768px) {
+            .nav-links { display: none; }
+            .topbar { flex-direction: column; }
+            .topbar a { margin-left: 0; }
+            .hero-content { flex-direction: column; padding: 6rem 1.5rem 3rem; }
+            .hero-right { order: -1; }
+            .hero-right img { width: 100%; height: 240px; }
+            .hero-right .floating { left: 0; }
             .hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 1.5rem; }
             .course-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr 1fr; }
-            .about { flex-direction: column; }
-            .about-left .floating { right: 1rem; }
+            .about-section { flex-direction: column; gap: 3rem; }
+            .about-left .floating { right: 0; }
+            .about-left img { height: 240px; }
             .testi-grid { grid-template-columns: 1fr; }
+            .contact-grid { flex-direction: column; align-items: center; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
@@ -169,41 +174,42 @@
         </div>
     </div>
 
-    <nav id="navbar">
-        <div class="logo">Excel<span>Coaching</span></div>
-        <ul>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-        <a href="tel:+919876543210" class="call-btn">📞 Call Now</a>
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">Excel<span>Coaching</span></a>
+            <ul class="nav-links">
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="tel:+919876543210" class="nav-cta">📞 Call Now</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-badge"><i class="fas fa-graduation-cap"></i> CBSE & ICSE · Classes 6–12</div>
-            <h1>Your Child's Report Card<br>Should Reflect<br><em>What They're </em><span class="highlight">Actually Capable Of</span></h1>
-            <p>I'm Rajesh Kumar, founder of Excel Coaching. I've been teaching Class 8–12 Math and Science for 15 years — first at a government school, then as a tutor, and now running this centre with my team of 4 teachers. We've helped over 2,200 students improve their scores. Not all of them became toppers. But almost all of them started understanding what they were learning in school — which is really the point.</p>
-            <div class="hero-btns">
-                <a href="#courses" class="btn-blue">View Courses & Fees</a>
-                <a href="#contact" class="btn-outline">Book Free Demo Class</a>
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-graduation-cap"></i> CBSE & ICSE · Classes 6–12</div>
+                <h1>Your Child's Report Card<br>Should Reflect<br><em>What They're</em> <span class="highlight">Actually Capable Of</span></h1>
+                <p>I'm Rajesh Kumar, founder of Excel Coaching. I've been teaching Class 8–12 Math and Science for 15 years — first at a government school, then as a tutor, and now running this centre with my team of 4 teachers. We've helped over 2,200 students improve their scores. Not all of them became toppers. But almost all of them started understanding what they were learning in school — which is really the point.</p>
+                <div class="hero-btns">
+                    <a href="#courses" class="btn-blue">View Courses & Fees</a>
+                    <a href="tel:+919876543210" class="btn-outline">📞 Book Free Demo Class</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><div class="num">2,200+</div><div class="label">Students Taught</div></div>
+                    <div class="hero-stat"><div class="num">15</div><div class="label">Years Experience</div></div>
+                    <div class="hero-stat"><div class="num">94%</div><div class="label">Improvement Rate</div></div>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat"><div class="num">2,200+</div><div class="label">Students Taught</div></div>
-                <div class="hero-stat"><div class="num">15</div><div class="label">Years Experience</div></div>
-                <div class="hero-stat"><div class="num">94%</div><div class="label">Improvement Rate</div></div>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="placeholder">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <div class="floating f1">
-                    <div class="icon"><i class="fas fa-star"></i></div>
-                    <div class="f1-text">
-                        <h4>4.8 on Google</h4>
-                        <span>187 reviews</span>
-                    </div>
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Classroom at Excel Coaching">
+                <div class="floating">
+                    <div class="stars">★★★★★</div>
+                    <p>4.8 on Google</p>
+                    <span>187 reviews</span>
                 </div>
             </div>
         </div>
@@ -212,15 +218,17 @@
     <div class="strip">
         <div class="strip-item"><i class="fas fa-check-circle"></i> Small Batches — Max 18 Students</div>
         <div class="strip-item"><i class="fas fa-check-circle"></i> CBSE & ICSE Both Boards</div>
-        <div class="strip-item"><i class="fas fa-check-circle"></i> Free Doubt Sessions</div>
+        <div class="strip-item"><i class="fas fa-check-circle"></i> Free Doubt Sessions Every Saturday</div>
         <div class="strip-item"><i class="fas fa-check-circle"></i> Classes 6–12 · All Subjects</div>
         <div class="strip-item"><i class="fas fa-check-circle"></i> Demo Class Before Enrollment</div>
     </div>
 
     <section class="courses" id="courses">
-        <div class="section-label reveal">Our Programs</div>
-        <h2 class="section-title reveal">What We Teach</h2>
-        <p class="section-sub reveal">Classes 6–12, CBSE and ICSE. Batches start every month. Demo class is free — your child attends 2 sessions before you decide.</p>
+        <div class="header reveal">
+            <div class="label">Our Programs</div>
+            <h2>What We Teach</h2>
+            <p class="sub">Classes 6–12, CBSE and ICSE. Batches start every month. Demo class is free — your child attends 2 sessions before you decide.</p>
+        </div>
         <div class="course-grid stagger">
             <div class="course-card">
                 <div class="level-badge">Classes 6–8</div>
@@ -259,48 +267,11 @@
         <p style="text-align:center;margin-top:2rem;font-size:0.82rem;color:#888;" class="reveal">Fees are monthly. No advance for full year required — pay month by month. Books and notes included.</p>
     </section>
 
-    <section class="why-us" id="why-us">
-        <div class="section-label reveal">Why Parents Choose Us</div>
-        <h2 class="section-title reveal">What Makes Excel Different</h2>
-        <p class="section-sub reveal">Not a coaching factory. Not a run-and-teach operation. A centre that's been in Vaishali for 16 years.</p>
-        <div class="why-grid stagger">
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-users"></i></div>
-                <h3>Small Batches, Always</h3>
-                <p>Maximum 15 students in a batch. Not 30. Not 40. When a class has 30 students, the teacher teaches to the front row. We don't operate that way.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-redo"></i></div>
-                <h3>Free Doubt Sessions</h3>
-                <p>Every Saturday 3–5 PM, students can walk in with any question from any subject — no appointment needed. This has been running since 2012 without a single missed week.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-user-check"></i></div>
-                <h3>Direct Access to Me</h3>
-                <p>My mobile number is on the welcome letter I give every parent. If your child's marks drop or they're struggling, you can message me directly. I respond within 4 hours during working hours.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-file-alt"></i></div>
-                <h3>Regular Tests & Reports</h3>
-                <p>Monthly tests based on school exam pattern. Parents receive a written progress report every 2 months — not just marks, but specific areas where the child is improving or struggling.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-chalkboard"></i></div>
-                <h3>Teacher Stability</h3>
-                <p>Three of our four teachers have been here for over 5 years. We don't hire cheap fresh graduates who leave in 3 months. Consistency matters for students.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon"><i class="fas fa-rupee-sign"></i></div>
-                <h3>Honest Pricing</h3>
-                <p>₹2,200/month for Classes 6–8 is what we charge. We don't have a "discount for full year" structure that penalizes parents who can't pay upfront. Month-by-month is fine.</p>
-            </div>
-        </div>
-    </section>
-
     <section class="results" id="results">
-        <div class="section-label reveal" style="color:rgba(255,255,255,0.5);">Proof</div>
-        <h2 class="section-title reveal">Numbers Don't Lie</h2>
-        <p class="section-sub reveal">Based on internal tracking across all batches since 2015</p>
+        <div class="header reveal">
+            <div class="label" style="color:rgba(255,255,255,0.4);">Proof</div>
+            <h2>Numbers Don't Lie</h2>
+        </div>
         <div class="results-grid stagger">
             <div class="result-item">
                 <div class="num">2,200+</div>
@@ -321,19 +292,17 @@
         </div>
     </section>
 
-    <section class="about" id="about">
+    <section class="about-section" id="about">
         <div class="about-left reveal">
-            <div class="img-box">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <div class="floating">
-                    <span class="year">16</span>
-                    <span>Years in Vaishali</span>
-                </div>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Teaching at Excel Coaching">
+            <div class="floating">
+                <span class="year">16</span>
+                <span>Years in Vaishali</span>
             </div>
         </div>
         <div class="about-right reveal">
-            <div class="tag">About the Centre</div>
-            <h2>Rajesh Kumar — Founder & Lead Teacher</h2>
+            <div class="label">About Rajesh Sir</div>
+            <h2>Rajesh Kumar —<br>Founder & Lead Teacher</h2>
             <p>I did my B.Sc. from CCS University, Meerut and a B.Ed. from MDU, Rohtak. I taught Class 9–12 Math at a government school in Bulandshahr from 2008 to 2012. I left because I wanted to give more attention to students than the 1:60 ratio allowed. I opened Excel Coaching in Vaishali in January 2010 with 8 students in one room.</p>
             <p>Today we have 4 teachers, approximately 100 active students, and a waiting list for some batches. That sounds like bragging but I'm just stating facts — the reason we have a waiting list is that I refuse to add students beyond what our batch capacity allows, even when parents request it.</p>
             <div class="highlight-box">
@@ -343,63 +312,71 @@
         </div>
     </section>
 
-    <section class="testimonials">
-        <div class="section-label reveal">Reviews</div>
-        <h2 class="section-title reveal">What Parents Say</h2>
-        <p class="section-sub reveal">Real reviews, names available on Google</p>
-        <div class="testi-grid stagger">
-            <div class="testi-card">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"My daughter Arpita was failing Math in Class 8. She dreaded going to tuition because her previous tutor made her feel stupid for asking basic questions. Within 4 months with Rajesh Sir, her Class 8 final exam score went from 38 to 71. She's now in Class 10 and consistently scoring 85+. The change wasn't just academic — she actually started enjoying Math. I cried when I saw her Class 9 report card."</p>
-                <div class="person">
-                    <div class="person-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4>Sunita Devi</h4>
-                        <span>Mother of Arpita, Class 10 · DPS Vaishali</span>
+    <section class="testimonials" id="testimonials">
+        <div class="testi-bg"></div>
+        <div class="content">
+            <div class="label">Reviews</div>
+            <h2>What Parents Say</h2>
+            <div class="testi-grid stagger">
+                <div class="testi-card">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"My daughter Arpita was failing Math in Class 8. She dreaded going to tuition because her previous tutor made her feel stupid for asking basic questions. Within 4 months with Rajesh Sir, her Class 8 final exam score went from 38 to 71. She's now in Class 10 and consistently scoring 85+. The change wasn't just academic — she actually started enjoying Math. I cried when I saw her Class 9 report card."</p>
+                    <div class="person">
+                        <div class="person-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>Sunita Devi</h4>
+                            <span>Mother of Arpita, Class 10 · DPS Vaishali</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="testi-card">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"My son Aryan was in a large batch tuitions centre before Excel. He was just another student — nobody knew his name, nobody tracked where he was struggling. Rajesh Sir identified in the first 3 weeks that Aryan's issue wasn't Math — it was foundational gaps from Class 6. We spent 2 months just on Class 6 and 7 concepts before touching Class 9 material. That's honesty you don't find easily. Aryan scored 94% in Class 10 boards last year."</p>
-                <div class="person">
-                    <div class="person-avatar"><i class="fas fa-user"></i></div>
-                   div>
-                        <h4>Vikram Sharma</h4>
-                        <span>Father of Aryan, Class 11 PCM · Amity International</span>
+                <div class="testi-card">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"My son Aryan was in a large batch tuitions centre before Excel. He was just another student — nobody knew his name, nobody tracked where he was struggling. Rajesh Sir identified in the first 3 weeks that Aryan's issue wasn't Math — it was foundational gaps from Class 6. We spent 2 months just on Class 6 and 7 concepts before touching Class 9 material. That's honesty you don't find easily. Aryan scored 94% in Class 10 boards last year."</p>
+                    <div class="person">
+                        <div class="person-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>Vikram Sharma</h4>
+                            <span>Father of Aryan, Class 11 PCM · Amity International</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="contact-bar" id="contact">
-        <div class="contact-item reveal">
-            <div class="icon"><i class="fas fa-phone"></i></div>
-            <div>
-                <h4>Call / WhatsApp</h4>
-                <span>+91 98765 43210</span>
-            </div>
+    <div class="contact-section" id="contact">
+        <div class="reveal">
+            <div class="label">Contact</div>
+            <h2>Visit or Call Us</h2>
         </div>
-        <div class="contact-item reveal">
-            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-                <h4>Visit Us</h4>
-                <span>23, Sector 5, Vaishali, Ghaziabad 201010</span>
+        <div class="contact-grid reveal">
+            <div class="contact-card">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div>
+                    <h4>Call / WhatsApp</h4>
+                    <span>+91 98765 43210</span>
+                </div>
             </div>
-        </div>
-        <div class="contact-item reveal">
-            <div class="icon"><i class="fas fa-clock"></i></div>
-            <div>
-                <h4>Class Hours</h4>
-                <span>Mon–Sat: 4–8 PM · Sun: 9 AM–1 PM</span>
+            <div class="contact-card">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <h4>Visit Us</h4>
+                    <span>23, Sector 5, Vaishali, Ghaziabad 201010</span>
+                </div>
             </div>
-        </div>
-        <div class="contact-item reveal">
-            <div class="icon"><i class="fas fa-calendar-check"></i></div>
-            <div>
-                <h4>Demo Class</h4>
-                <span>Book Free 2-Session Demo Anytime</span>
+            <div class="contact-card">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4>Class Hours</h4>
+                    <span>Mon–Sat: 4–8 PM · Sun: 9 AM–1 PM</span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                <div>
+                    <h4>Demo Class</h4>
+                    <span>Book Free 2-Session Demo Anytime</span>
+                </div>
             </div>
         </div>
     </div>
@@ -412,10 +389,10 @@
             </div>
             <div class="footer-col">
                 <h4>Programs</h4>
-                <a href="#courses">Classes 6–8</a>
-                <a href="#courses">Classes 9–10</a>
-                <a href="#courses">Classes 11–12</a>
-                <a href="#">Free Doubt Sessions</a>
+                <a href="#courses">Classes 6–8 · ₹2,200/mo</a>
+                <a href="#courses">Classes 9–10 · ₹2,800/mo</a>
+                <a href="#courses">Classes 11–12 · ₹3,500/mo</a>
+                <a href="#courses">Free Doubt Sessions</a>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -438,9 +415,6 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
@@ -448,7 +422,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => { e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
-                if (t) t.scrollIntoView({ behavior: 'smooth' });
+                if(t) t.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
