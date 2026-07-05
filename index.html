@@ -8,38 +8,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Nunito', sans-serif; background: #f8f6f0; color: #1a1a1a; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Merriweather', serif; }
         :root { --blue: #1e4d8c; --orange: #e8720c; }
 
-        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        /* NAV — always on top, white bg */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
         .logo { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 700; color: var(--blue); text-decoration: none; }
         .logo span { color: var(--orange); }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: #555; text-decoration: none; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a { color: #666; text-decoration: none; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
         .nav-links a:hover { color: var(--blue); }
         .nav-cta { background: var(--orange); color: #fff; padding: 0.6rem 1.3rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
         .nav-cta:hover { background: #c5610a; }
 
-        .topbar { background: var(--blue); padding: 0.5rem 2rem; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; gap: 0.5rem; }
-        .topbar a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 1.5rem; }
+        .topbar {
+            background: var(--blue);
+            padding: 0.45rem 2rem;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.65);
+        }
+        .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 1.5rem; transition: 0.3s; }
         .topbar a:hover { color: #fff; }
 
-        /* FIXED: Full-bleed hero bg image, no blocking element */
-        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1800&q=85'); background-size: cover; background-position: center; }
-        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(248,246,240,0.97) 0%, rgba(248,246,240,0.88) 45%, rgba(248,246,240,0.2) 100%); }
-        .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 7rem 3rem 4rem; display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
+        /* HERO — full-bleed bg, no blocking space */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1800&q=85');
+            background-size: cover; background-position: center;
+        }
+        .hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(248,246,240,0.97) 0%, rgba(248,246,240,0.9) 45%, rgba(248,246,240,0.3) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            width: 100%; max-width: 1200px;
+            margin: 0 auto; padding: 7rem 3rem 4rem;
+            display: flex; justify-content: space-between; align-items: center; gap: 3rem;
+        }
         .hero-text { max-width: 520px; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(30,77,140,0.1); color: var(--blue); padding: 0.35rem 1rem; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(30,77,140,0.1); color: var(--blue);
+            padding: 0.35rem 1rem; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem;
+        }
         .hero h1 { font-size: 2.8rem; line-height: 1.15; margin-bottom: 1.2rem; }
         .hero h1 em { color: var(--blue); font-style: normal; }
         .hero h1 .highlight { color: var(--orange); }
         .hero p { color: #555; font-size: 0.9rem; max-width: 460px; line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
         .hero-btns { display: flex; gap: 1rem; }
         .btn-blue { background: var(--blue); color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; display: inline-block; }
-        .btn-blue:hover { background: #163d6e; transform: translateY(-2px); }
+        .btn-blue:hover { background: #163d6e; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30,77,140,0.25); }
         .btn-outline { border: 1.5px solid #ccc; color: #1a1a1a; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; font-weight: 600; transition: 0.3s; display: inline-block; }
         .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
         .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
@@ -52,16 +89,30 @@
         .hero-right .floating p { font-size: 0.82rem; font-weight: 600; }
         .hero-right .floating span { font-size: 0.72rem; color: #888; }
 
+        /* STRIP */
         .strip { background: var(--orange); padding: 0.8rem 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
         .strip-item { display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.75rem; font-weight: 600; }
 
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+        .reveal-delay-4 { transition-delay: 0.6s; }
+        .reveal-delay-5 { transition-delay: 0.75s; }
+
+        /* COURSES */
         .courses { padding: 6rem 2rem; }
         .courses .header { max-width: 1200px; margin: 0 auto 3rem; text-align: center; }
         .courses .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
         .courses h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0; }
         .courses .sub { color: #888; font-size: 0.88rem; }
         .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .course-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; transition: 0.3s; }
+        .course-card {
+            background: #fff; border: 1px solid #e8e0d5;
+            padding: 2rem; transition: 0.3s;
+        }
         .course-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: var(--blue); }
         .course-card .level-badge { display: inline-block; background: rgba(30,77,140,0.08); color: var(--blue); padding: 0.3rem 0.8rem; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
         .course-card h3 { font-family: 'Merriweather', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
@@ -74,6 +125,7 @@
         .course-card .price small { font-size: 0.68rem; color: #aaa; font-family: 'Nunito', sans-serif; }
         .course-card .seats { font-size: 0.72rem; color: #e63946; font-weight: 600; }
 
+        /* RESULTS */
         .results { padding: 6rem 2rem; background: var(--blue); }
         .results .header { max-width: 1200px; margin: 0 auto 3rem; text-align: center; }
         .results .label { color: rgba(255,255,255,0.4); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; }
@@ -83,6 +135,7 @@
         .result-item .num { font-family: 'Merriweather', serif; font-size: 2.5rem; color: var(--orange); }
         .result-item .label { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
+        /* ABOUT */
         .about-section { padding: 6rem 2rem; display: flex; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; }
         .about-left { flex: 1; min-width: 280px; position: relative; }
         .about-left img { width: 100%; height: 380px; object-fit: cover; display: block; }
@@ -92,19 +145,21 @@
         .about-right { flex: 1; min-width: 280px; }
         .about-right .label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 1rem; }
         .about-right h2 { font-family: 'Merriweather', serif; font-size: 2rem; margin-bottom: 1.2rem; line-height: 1.3; }
-        .about-right p { color: #555; font-size: 0.88rem; line: 1.8; margin-bottom: 1rem; font-weight: 300; }
+        .about-right p { color: #555; font-size: 0.88rem; line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
         .about-right .highlight-box { background: rgba(30,77,140,0.06); padding: 1.2rem; border-left: 3px solid var(--blue); margin: 1.5rem 0; }
         .about-right .highlight-box h4 { font-family: 'Merriweather', serif; font-size: 0.95rem; color: var(--blue); margin-bottom: 0.4rem; }
-        .about-right .highlight-box p { font-size: 0.82rem; color: #666; margin-bottom: 0; }
+        .about-right .highlight-box p { font-size: 0.82rem; color: #666; margin-bottom: 0; font-style: italic; }
 
+        /* TESTIMONIALS */
         .testimonials { padding: 6rem 2rem; position: relative; overflow: hidden; }
-        .testi-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=80'); background-size: cover; background-position: center; }
-        .testi-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.95); }
+        .testi-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80'); background-size: cover; background-position: center; }
+        .testi-bg::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.96); }
         .testimonials .content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
         .testimonials .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
         .testimonials h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0 3rem; }
         .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .testi-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; }
+        .testi-card { background: #fff; border: 1px solid #e8e0d5; padding: 2rem; transition: 0.3s; }
+        .testi-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
         .testi-card .quote { color: var(--orange); font-size: 1.4rem; margin-bottom: 1rem; }
         .testi-card p { font-size: 0.88rem; color: #555; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
         .testi-card .person { display: flex; align-items: center; gap: 0.8rem; }
@@ -113,16 +168,19 @@
         .testi-card .person h4 { font-size: 0.88rem; font-weight: 700; }
         .testi-card .person span { font-size: 0.72rem; color: #888; }
 
+        /* CONTACT */
         .contact-section { padding: 5rem 2rem; text-align: center; background: #fff; }
         .contact-section .label { color: var(--orange); font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
         .contact-section h2 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin: 0.5rem 0; }
         .contact-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 3rem; }
-        .contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border: 1px solid #eee; background: #fafaf8; }
-        .contact-card .icon { width: 50px; height: 50px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border: 1px solid #eee; background: #fafaf8; transition: 0.3s; }
+        .contact-card:hover { border-color: var(--blue); }
+        .contact-card .icon { width: 50px; height: 50px; background: rgba(30,77,140,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .contact-card .icon i { color: var(--blue); font-size: 1.2rem; }
-        .contact-card h4 { font-size: 0.82rem; font-weight: 700; }
-        .contact-card span { font-size: 0.78rem; color: #777; }
+        .contact-card h4 { font-size: 0.82rem; font-weight: 700; text-align: left; }
+        .contact-card span { font-size: 0.78rem; color: #777; text-align: left; display: block; }
 
+        /* FOOTER */
         footer { background: #0d1b2a; color: #fff; padding: 4rem 2rem 2rem; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
         .footer-brand .logo { font-family: 'Merriweather', serif; font-size: 1.2rem; color: #fff; margin-bottom: 1rem; }
@@ -134,20 +192,9 @@
         .footer-bottom { border-top: 1px solid #162030; padding-top: 2rem; text-align: center; max-width: 1200px; margin: 0 auto; }
         .footer-bottom p { font-size: 0.68rem; color: #334; }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .stagger > * { opacity: 0; transform: translateY(20px); transition: 0.5s; }
-        .stagger.active > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:0s; }
-        .stagger.active > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:0.15s; }
-        .stagger.active > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:0.3s; }
-        .stagger.active > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:0.45s; }
-        .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.6s; }
-        .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
-
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
             .nav-links { display: none; }
             .topbar { flex-direction: column; }
-            .topbar a { margin-left: 0; }
             .hero-content { flex-direction: column; padding: 6rem 1.5rem 3rem; }
             .hero-right { order: -1; }
             .hero-right img { width: 100%; height: 240px; }
@@ -229,8 +276,8 @@
             <h2>What We Teach</h2>
             <p class="sub">Classes 6–12, CBSE and ICSE. Batches start every month. Demo class is free — your child attends 2 sessions before you decide.</p>
         </div>
-        <div class="course-grid stagger">
-            <div class="course-card">
+        <div class="course-grid">
+            <div class="course-card reveal">
                 <div class="level-badge">Classes 6–8</div>
                 <h3>Foundation Building</h3>
                 <div class="board">CBSE · ICSE</div>
@@ -241,7 +288,7 @@
                     <div class="seats">4 seats left</div>
                 </div>
             </div>
-            <div class="course-card">
+            <div class="course-card reveal reveal-delay-1">
                 <div class="level-badge">Class 9–10</div>
                 <h3>Board Prep Intensive</h3>
                 <div class="board">CBSE · ICSE</div>
@@ -252,7 +299,7 @@
                     <div class="seats">2 seats left</div>
                 </div>
             </div>
-            <div class="course-card">
+            <div class="course-card reveal reveal-delay-2">
                 <div class="level-badge">Class 11–12</div>
                 <h3>Senior Secondary Prep</h3>
                 <div class="board">CBSE · ISC</div>
@@ -269,26 +316,14 @@
 
     <section class="results" id="results">
         <div class="header reveal">
-            <div class="label" style="color:rgba(255,255,255,0.4);">Proof</div>
+            <div class="label">Proof</div>
             <h2>Numbers Don't Lie</h2>
         </div>
-        <div class="results-grid stagger">
-            <div class="result-item">
-                <div class="num">2,200+</div>
-                <div class="label">Students Taught</div>
-            </div>
-            <div class="result-item">
-                <div class="num">94%</div>
-                <div class="label">Improved by ≥1 Grade</div>
-            </div>
-            <div class="result-item">
-                <div class="num">87%</div>
-                <div class="label">Class 10 Board 90%+</div>
-            </div>
-            <div class="result-item">
-                <div class="num">4.8/5</div>
-                <div class="label">Google Rating</div>
-            </div>
+        <div class="results-grid">
+            <div class="result-item reveal"><div class="num">2,200+</div><div class="label">Students Taught</div></div>
+            <div class="result-item reveal reveal-delay-1"><div class="num">94%</div><div class="label">Improved by ≥1 Grade</div></div>
+            <div class="result-item reveal reveal-delay-2"><div class="num">87%</div><div class="label">Class 10 Board 90%+</div></div>
+            <div class="result-item reveal reveal-delay-3"><div class="num">4.8/5</div><div class="label">Google Rating</div></div>
         </div>
     </section>
 
@@ -317,8 +352,8 @@
         <div class="content">
             <div class="label">Reviews</div>
             <h2>What Parents Say</h2>
-            <div class="testi-grid stagger">
-                <div class="testi-card">
+            <div class="testi-grid">
+                <div class="testi-card reveal">
                     <div class="quote"><i class="fas fa-quote-left"></i></div>
                     <p>"My daughter Arpita was failing Math in Class 8. She dreaded going to tuition because her previous tutor made her feel stupid for asking basic questions. Within 4 months with Rajesh Sir, her Class 8 final exam score went from 38 to 71. She's now in Class 10 and consistently scoring 85+. The change wasn't just academic — she actually started enjoying Math. I cried when I saw her Class 9 report card."</p>
                     <div class="person">
@@ -329,7 +364,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testi-card">
+                <div class="testi-card reveal reveal-delay-1">
                     <div class="quote"><i class="fas fa-quote-left"></i></div>
                     <p>"My son Aryan was in a large batch tuitions centre before Excel. He was just another student — nobody knew his name, nobody tracked where he was struggling. Rajesh Sir identified in the first 3 weeks that Aryan's issue wasn't Math — it was foundational gaps from Class 6. We spent 2 months just on Class 6 and 7 concepts before touching Class 9 material. That's honesty you don't find easily. Aryan scored 94% in Class 10 boards last year."</p>
                     <div class="person">
@@ -417,8 +452,8 @@
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => { e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
