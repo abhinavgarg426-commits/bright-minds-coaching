@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Minds Coaching | Classes 8-12 CBSE & ICSE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #1e293b; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Nunito', sans-serif; }
+        
+        /* Top bar */
+        .topbar { background: #1e40af; color: #fff; padding: 0.6rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .topbar a { color: #fbbf24; text-decoration: none; margin-left: 1rem; font-weight: 600; }
+        
+        nav { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 900; color: #1e40af; }
+        .logo span { color: #fbbf24; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: #334155; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: #1e40af; }
+        .nav-cta { background: #1e40af; color: #fff !important; padding: 0.6rem 1.5rem; border-radius: 50px; }
+        .nav-cta:hover { background: #1e3a8a; }
+        
+        .hero { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 4rem 5%; display: flex; gap: 3rem; align-items: center; min-height: 85vh; }
+        .hero-content { flex: 1; }
+        .hero-badge { display: inline-block; background: rgba(30,64,175,0.1); color: #1e40af; padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 3rem; font-weight: 900; line-height: 1.15; margin-bottom: 1rem; color: #1e293b; }
+        .hero h1 span { color: #1e40af; }
+        .hero p { font-size: 1.05rem; color: #475569; margin-bottom: 2rem; max-width: 500px; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { background: #1e40af; color: #fff; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary:hover { background: #1e3a8a; transform: translateY(-2px); }
+        .btn-secondary { background: #fff; color: #1e40af; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; border: 2px solid #1e40af; transition: 0.3s; }
+        .btn-secondary:hover { background: #1e40af; color: #fff; }
+        .hero-img { flex: 1; text-align: center; }
+        .hero-img i { font-size: 12rem; color: #1e40af; opacity: 0.7; }
+        
+        .stats-bar { background: #1e40af; padding: 2rem 5%; display: flex; justify-content: center; gap: 5rem; }
+        .stat { text-align: center; color: #fff; }
+        .stat .num { font-family: 'Nunito', sans-serif; font-size: 2.5rem; font-weight: 900; color: #fbbf24; }
+        .stat .label { font-size: 0.85rem; opacity: 0.8; }
+        
+        .courses { padding: 5rem 5%; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-family: 'Nunito', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .section-title p { color: #64748b; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .course-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: 0.3s; border: 2px solid transparent; }
+        .course-card:hover { border-color: #1e40af; transform: translateY(-5px); }
+        .course-header { background: #1e40af; color: #fff; padding: 1.5rem; }
+        .course-header h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+        .course-header span { font-size: 0.85rem; opacity: 0.8; }
+        .course-body { padding: 1.5rem; }
+        .course-body .subjects { margin-bottom: 1.5rem; }
+        .course-body .subjects h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 0.8rem; }
+        .subject-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .subject-tag { background: #eff6ff; color: #1e40af; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+        .course-info { display: flex; flex-direction: column; gap: 0.8rem; }
+        .course-info-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; color: #475569; }
+        .course-info-item i { color: #1e40af; width: 20px; }
+        .course-footer { padding: 1.5rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+        .course-price { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: #1e40af; }
+        .course-price span { font-size: 0.85rem; color: #94a3b8; font-weight: 400; }
+        .course-btn { background: #fbbf24; color: #1e293b; padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .course-btn:hover { background: #f59e0b; }
+        
+        .why-us { padding: 5rem 5%; background: #f8fafc; }
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .why-card { background: #fff; padding: 2rem; border-radius: 15px; text-align: center; transition: 0.3s; }
+        .why-card:hover { transform: translateY(-5px); }
+        .why-card i { font-size: 2.5rem; color: #1e40af; margin-bottom: 1rem; }
+        .why-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .why-card p { font-size: 0.9rem; color: #64748b; }
+        
+        .teachers { padding: 5rem 5%; display: flex; gap: 4rem; align-items: center; }
+        .teacher-img { flex: 1; text-align: center; }
+        .teacher-img i { font-size: 10rem; color: #1e40af; opacity: 0.6; }
+        .teacher-content { flex: 1; }
+        .teacher-content h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .teacher-content .role { color: #1e40af; font-weight: 600; margin-bottom: 1.5rem; }
+        .teacher-content p { color: #475569; margin-bottom: 1rem; }
+        .teacher-content ul { list-style: none; }
+        .teacher-content li { padding: 0.5rem 0; color: #475569; }
+        .teacher-content li i { color: #22c55e; margin-right: 0.5rem; }
+        
+        .results { padding: 5rem 5%; background: #1e40af; color: #fff; text-align: center; }
+        .results h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .results > p { opacity: 0.7; margin-bottom: 3rem; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .result-card { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; }
+        .result-card .num { font-family: 'Nunito', sans-serif; font-size: 3rem; font-weight: 900; color: #fbbf24; }
+        .result-card .label { font-size: 0.9rem; opacity: 0.8; }
+        
+        .testimonials { padding: 5rem 5%; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .testimonial-card { background: #f8fafc; padding: 2rem; border-radius: 15px; }
+        .testimonial-card .stars { color: #fbbf24; margin-bottom: 1rem; }
+        .testimonial-card p { color: #475569; margin-bottom: 1.5rem; font-style: italic; }
+        .testimonial-card .person { display: flex; align-items: center; gap: 1rem; }
+        .testimonial-card .avatar { width: 50px; height: 50px; background: #1e40af; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+        .testimonial-card h4 { font-size: 0.95rem; }
+        .testimonial-card span { font-size: 0.8rem; color: #94a3b8; }
+        
+        .schedule { padding: 5rem 5%; background: #f8fafc; }
+        .schedule-table { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .schedule-row { display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; padding: 1rem 1.5rem; border-bottom: 1px solid #f1f5f9; align-items: center; font-size: 0.9rem; }
+        .schedule-row.header { background: #1e40af; color: #fff; font-weight: 700; }
+        .schedule-row:last-child { border-bottom: none; }
+        .schedule-row .day { font-weight: 700; color: #1e40af; }
+        
+        .contact { padding: 5rem 5%; max-width: 1000px; margin: 0 auto; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contact-info h2 { font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .contact-info > p { color: #64748b; margin-bottom: 2rem; }
+        .contact-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-item i { width: 45px; height: 45px; background: #eff6ff; color: #1e40af; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-item strong { display: block; margin-bottom: 0.2rem; }
+        .contact-item span { font-size: 0.9rem; color: #64748b; }
+        .contact-form { background: #f8fafc; padding: 2rem; border-radius: 15px; }
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 0.9rem; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 1rem; font-family: 'Poppins', sans-serif; }
+        .contact-form button { width: 100%; padding: 1rem; background: #1e40af; color: #fff; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .contact-form button:hover { background: #1e3a8a; }
+        
+        footer { background: #1e293b; color: #fff; padding: 3rem 5%; }
+        .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+        .footer-brand .logo { font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem; }
+        .footer-brand p { color: #94a3b8; font-size: 0.9rem; max-width: 300px; }
+        .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #fbbf24; }
+        .footer-col a { display: block; color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; transition: 0.3s; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.85rem; color: #64748b; }
+        
+        @media (max-width: 768px) {
+            .topbar { flex-direction: column; gap: 0.3rem; }
+            nav ul { display: none; }
+            .hero { flex-direction: column; text-align: center; padding: 3rem 5%; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-btns { justify-content: center; }
+            .stats-bar { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+            .teachers { flex-direction: column; }
+            .schedule-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <span>📞 Admissions Open for 2026-27 Academic Year</span>
+        <span>Limited Seats! <a href="#contact">Enquire Now</a></span>
+    </div>
+    
+    <nav>
+        <div class="logo">Bright<span>Minds</span></div>
+        <ul>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#teachers">Faculty</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#contact" class="nav-cta">Free Demo Class</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🏆 CBSE & ICSE Board Specialists</div>
+            <h1>Unlock Your Child's <span>True Potential</span></h1>
+            <p>Expert coaching for Classes 8-12 with personalized attention, proven results, and a track record of 500+ students scoring 90%+ in board exams.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary"><i class="fas fa-phone"></i> Book Free Demo Class</a>
+                <a href="#courses" class="btn-secondary">View Courses</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+    </section>
+    
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="num">12+</div>
+            <div class="label">Years Experience</div>
+        </div>
+        <div class="stat">
+            <div class="num">2000+</div>
+            <div class="label">Students Taught</div>
+        </div>
+        <div class="stat">
+            <div class="num">95%</div>
+            <div class="label">Result Rate</div>
+        </div>
+        <div class="stat">
+            <div class="num">50+</div>
+            <div class="label">Star Students</div>
+        </div>
+    </div>
+    
+    <section class="courses" id="courses">
+        <div class="section-title">
+            <h2>Our Programs</h2>
+            <p>Comprehensive coaching for every board and level</p>
+        </div>
+        <div class="course-grid">
+            <div class="course-card">
+                <div class="course-header">
+                    <h3>Class 8-10 (CBSE)</h3>
+                    <span>Foundation Building</span>
+                </div>
+                <div class="course-body">
+                    <div class="subjects">
+                        <h4>Subjects Covered</h4>
+                        <div class="subject-list">
+                            <span class="subject-tag">Mathematics</span>
+                            <span class="subject-tag">Science</span>
+                            <span class="subject-tag">English</span>
+                            <span class="subject-tag">Social Studies</span>
+                            <span class="subject-tag">Hindi</span>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-info-item"><i class="fas fa-clock"></i> 4 hours/week per subject</div>
+                        <div class="course-info-item"><i class="fas fa-users"></i> Batch of 15 students max</div>
+                        <div class="course-info-item"><i class="fas fa-file-alt"></i> Weekly tests & revisions</div>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <div class="course-price">₹3,000<span>/month</span></div>
+                    <a href="#contact" class="course-btn">Enroll Now</a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-header" style="background:#7c3aed;">
+                    <h3>Class 11-12 (Science)</h3>
+                    <span>Board + Competitive Prep</span>
+                </div>
+                <div class="course-body">
+                    <div class="subjects">
+                        <h4>Subjects Covered</h4>
+                        <div class="subject-list">
+                            <span class="subject-tag" style="background:#f5f3ff;color:#7c3aed;">Physics</span>
+                            <span class="subject-tag" style="background:#f5f3ff;color:#7c3aed;">Chemistry</span>
+                            <span class="subject-tag" style="background:#f5f3ff;color:#7c3aed;">Mathematics</span>
+                            <span class="subject-tag" style="background:#f5f3ff;color:#7c3aed;">Biology</span>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-info-item"><i class="fas fa-clock"></i> 5 hours/week per subject</div>
+                        <div class="course-info-item"><i class="fas fa-users"></i> Batch of 12 students max</div>
+                        <div class="course-info-item"><i class="fas fa-chart-line"></i> JEE/NEET foundation prep</div>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <div class="course-price" style="color:#7c3aed;">₹5,500<span>/month</span></div>
+                    <a href="#contact" class="course-btn" style="background:#7c3aed;color:#fff;">Enroll Now</a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-header" style="background:#059669;">
+                    <h3>Class 11-12 (Commerce)</h3>
+                    <span>Strong Fundamentals</span>
+                </div>
+                <div class="course-body">
+                    <div class="subjects">
+                        <h4>Subjects Covered</h4>
+                        <div class="subject-list">
+                            <span class="subject-tag" style="background:#ecfdf5;color:#059669;">Accountancy</span>
+                            <span class="subject-tag" style="background:#ecfdf5;color:#059669;">Economics</span>
+                            <span class="subject-tag" style="background:#ecfdf5;color:#059669;">Business Studies</span>
+                            <span class="subject-tag" style="background:#ecfdf5;color:#059669;">Mathematics</span>
+                            <span class="subject-tag" style="background:#ecfdf5;color:#059669;">English</span>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-info-item"><i class="fas fa-clock"></i> 4 hours/week per subject</div>
+                        <div class="course-info-item"><i class="fas fa-users"></i> Batch of 15 students max</div>
+                        <div class="course-info-item"><i class="fas fa-lightbulb"></i> Case study approach</div>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <div class="course-price" style="color:#059669;">₹4,500<span>/month</span></div>
+                    <a href="#contact" class="course-btn" style="background:#059669;color:#fff;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why-us">
+        <div class="section-title">
+            <h2>Why Bright Minds?</h2>
+            <p>What makes us different from other coaching centers</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <i class="fas fa-user-friends"></i>
+                <h3>Small Batch Sizes</h3>
+                <p>Maximum 12-15 students per batch ensuring every student gets personal attention and doubts are never left unanswered.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-brain"></i>
+                <h3>Smart Study Techniques</h3>
+                <p>We teach HOW to study, not just WHAT to study. Memory techniques, active recall, and spaced repetition built into every session.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Progress Tracking</h3>
+                <p>Weekly parent-teacher meetings, monthly reports, and regular assessments keep everyone informed and on track.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Experienced Faculty</h3>
+                <p>All teachers are IIT/NIT graduates or have 10+ years of board exam experience. No freshers, no compromises.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-video"></i>
+                <h3>Recorded Lectures</h3>
+                <p>Missed a class? No problem. All lectures are recorded and available for revision anytime, anywhere.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>Affordable Fees</h3>
+                <p>Top-quality education without the top-quality price tag. EMI options available for all courses.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="teachers" id="teachers">
+        <div class="teacher-img">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="teacher-content">
+            <h2>Meet Your Guide</h2>
+            <div class="role">Rajesh Kumar — Founder & Head Faculty</div>
+            <p>B.Tech from IIT Delhi with 15 years of teaching experience. Rajesh Sir has personally taught over 2,000 students, with 85% of his Class 12 students scoring above 90% in Board exams. His students have gone on to study at IITs, AIIMS, and top universities across India and abroad.</p>
+            <p>Known for making complex concepts simple and ensuring every student not just understands but truly enjoys learning. Parents consistently describe him as "the teacher who changed my child's relationship with studies."</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> B.Tech, IIT Delhi — Top 500 AIR in JEE</li>
+                <li><i class="fas fa-check-circle"></i> 15 years of board exam teaching experience</li>
+                <li><i class="fas fa-check-circle"></i> 500+ students in top engineering/medical colleges</li>
+                <li><i class="fas fa-check-circle"></i> Known for simplified concept teaching</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="results" id="results">
+        <h2>Proven Results</h2>
+        <p>Numbers that speak for themselves</p>
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="num">95%</div>
+                <div class="label">Students score 80%+</div>
+            </div>
+            <div class="result-card">
+                <div class="num">150+</div>
+                <div class="label">90% Scorers in 2025</div>
+            </div>
+            <div class="result-card">
+                <div class="num">50+</div>
+                <div class="label">IIT/NEET Selections</div>
+            </div>
+            <div class="result-card">
+                <div class="num">4.8</div>
+                <div class="label">Parent Rating</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>What Parents Say</h2>
+            <p>Real feedback from real parents</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"My daughter went from scoring 55% in Class 10 to 94% in her boards after just 1 year at Bright Minds. Rajesh Sir has a gift for making students fall in love with the subject. The weekly parent meetings kept us informed every step of the way."</p>
+                <div class="person">
+                    <div class="avatar">SP</div>
+                    <div>
+                        <h4>Sonia Patil</h4>
+                        <span>Parent of Class 10 Student</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Both my sons studied here. The elder one is now at IIT Bombay. The younger one is following the same path. I recommend Bright Minds to every parent I meet. The fees are reasonable and the results are extraordinary."</p>
+                <div class="person">
+                    <div class="avatar">AK</div>
+                    <div>
+                        <h4>Alok Kumar</h4>
+                        <span>Parent of Class 11 & 12 Students</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="schedule" id="schedule">
+        <div class="section-title">
+            <h2>Class Schedule</h2>
+            <p>Regular classes run Monday to Saturday</p>
+        </div>
+        <div class="schedule-table">
+            <div class="schedule-row header">
+                <div>Day</div>
+                <div>Class 8-10</div>
+                <div>Class 11-12 Science</div>
+                <div>Class 11-12 Commerce</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Monday</div>
+                <div>4:00 PM - 6:00 PM</div>
+                <div>5:00 PM - 8:00 PM</div>
+                <div>5:00 PM - 7:00 PM</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Tuesday</div>
+                <div>4:00 PM - 6:00 PM</div>
+                <div>5:00 PM - 8:00 PM</div>
+                <div>5:00 PM - 7:00 PM</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Wednesday</div>
+                <div>4:00 PM - 6:00 PM</div>
+                <div>5:00 PM - 8:00 PM</div>
+                <div>5:00 PM - 7:00 PM</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Thursday</div>
+                <div>4:00 PM - 6:00 PM</div>
+                <div>5:00 PM - 8:00 PM</div>
+                <div>5:00 PM - 7:00 PM</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Friday</div>
+                <div>4:00 PM - 6:00 PM</div>
+                <div>5:00 PM - 8:00 PM</div>
+                <div>5:00 PM - 7:00 PM</div>
+            </div>
+            <div class="schedule-row">
+                <div class="day">Saturday</div>
+                <div>10:00 AM - 1:00 PM</div>
+                <div>10:00 AM - 2:00 PM</div>
+                <div>10:00 AM - 1:00 PM</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Schedule a free demo class or visit our center. No obligations, just possibilities.</p>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Location</strong>
+                        <span>12, Sunshine Complex, Near City Mall<br>Andheri East, Mumbai 400069</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Phone / WhatsApp</strong>
+                        <span>+91 98765 43210</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>info@brightmindsedu.in</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Office Hours</strong>
+                        <span>Mon-Sat: 10:00 AM - 8:00 PM<br>Sunday: By appointment only</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Parent's Name">
+                    <input type="tel" placeholder="Phone Number">
+                    <input type="text" placeholder="Student's Name">
+                    <select>
+                        <option>Select Class</option>
+                        <option>Class 8</option>
+                        <option>Class 9</option>
+                        <option>Class 10</option>
+                        <option>Class 11 (Science)</option>
+                        <option>Class 11 (Commerce)</option>
+                        <option>Class 12 (Science)</option>
+                        <option>Class 12 (Commerce)</option>
+                    </select>
+                    <select>
+                        <option>Select Board</option>
+                        <option>CBSE</option>
+                        <option>ICSE</option>
+                        <option>Maharashtra State Board</option>
+                    </select>
+                    <textarea rows="3" placeholder="Any specific concerns or questions?"></textarea>
+                    <button type="submit">Request Free Demo Class</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo">Bright<span>Minds</span></div>
+                <p>Your child's future, built on strong foundations. Trusted by 2000+ families across Mumbai since 2012.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <a href="#">Class 8-10 CBSE</a>
+                <a href="#">Class 11-12 Science</a>
+                <a href="#">Class 11-12 Commerce</a>
+                <a href="#">Crash Courses</a>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Our Results</a>
+                <a href="#">Fee Structure</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="#">+91 98765 43210</a>
+                <a href="#">info@brightmindsedu.in</a>
+                <a href="#">WhatsApp Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bright Minds Coaching Classes. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
